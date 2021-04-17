@@ -9,7 +9,7 @@ app.get('/', async (req, res) => {
   
  const stripe = require('stripe')(`${process.env.REACT_APP_Stripe_Live}`);
  const invoice = await stripe.invoices.retrieve(
-   ''
+    `${process.env.Invoice}`
  );
 
   console.log(JSON.stringify(invoice));
