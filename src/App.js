@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import firebase from 'firebase';
-import * as Globals from './Globals';
+
 
 //Css Import
 import './stylesheets/app.scss';

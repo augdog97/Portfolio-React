@@ -3,7 +3,7 @@ import React, {useRef} from 'react';
 import emailjs from 'emailjs-com';
 import{ init } from 'emailjs-com';
 import firebase from 'firebase';
-import * as Globals from '../Globals';
+
 
 
 
