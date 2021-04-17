@@ -11,14 +11,15 @@ import * as Globals from '../Globals';
 
 
 const Contact = () => {
-
+  
   // Remoteconfig Variables
-  const remoteConfig = firebase.remoteConfig()
-  remoteConfig.defaultConfig = Globals.remoteConfigDefaults;
+  const remoteConfig = firebase.remoteConfig();
+  
   
   const REACT_APP_UserId = remoteConfig.getValue('REACT_APP_UserId').asString();
   const REACT_APP_TemplateId = remoteConfig.getValue('REACT_APP_TemplateId').asString();
   const REACT_APP_ServiceId = remoteConfig.getValue('REACT_APP_ServiceId').asString();
+ 
 
   init(REACT_APP_UserId);
 
@@ -28,10 +29,10 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs.sendForm(
-       REACT_APP_ServiceId,
-       REACT_APP_TemplateId, 
+       REACT_APP_ServiceId ? REACT_APP_ServiceId : `${process.env.REACT_APP_ServiceId}`,
+       REACT_APP_TemplateId ? REACT_APP_TemplateId : `${process.env.REACT_APP_ServiceId}`, 
        e.target, 
-       REACT_APP_UserId)
+       REACT_APP_UserId ? REACT_APP_UserId : `${process.env.REACT_APP_UserId}`)
       .then((result) => {
           console.log(result);
       }, (error) => {

@@ -18,14 +18,23 @@ build-App:
   services:
     - docker:dind
   script:
-    - echo   "REACT_APP_ServiceId =$REACT_APP_ServiceId" >> .env
+    - echo   "REACT_APP_ServiceId=$REACT_APP_ServiceId" >> .env
     - echo   "REACT_APP_TemplateId=$REACT_APP_TemplateId" >> .env
     - echo   "REACT_APP_UserId=$REACT_APP_UserId" >> .env
+    - echo   "REACT_APP_apiKey=$REACT_APP_apiKey" >> .env
+    - echo   "REACT_APP_authDomain=$REACT_APP_authDomain" >> .env
+    - echo   "REACT_APP_projectId=$REACT_APP_projectId" >> .env
+    - echo   "REACT_APP_storageBucket=$REACT_APP_storageBucket" >> .env
+    - echo   "REACT_APP_messagingSenderId=$REACT_APP_messagingSenderId" >> .env
+    - echo   "REACT_APP_appId=$REACT_APP_appId" >> .env
+    - echo   "REACT_APP_measurementId=$REACT_APP_measurementId" >> .env
     - cat .env
     - docker build . -t $TAG_COMMIT -t $TAG_LATEST 
     - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
     - docker push $TAG_COMMIT
     - docker push $TAG_LATEST
+  only:
+    - master
 
 deploy-1:
   image: ubuntu:latest

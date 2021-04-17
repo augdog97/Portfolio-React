@@ -13,10 +13,7 @@ import Fade from 'react-reveal';
 
 
 const Home = () => {
-    const remoteConfig = firebase.remoteConfig()
     
-    const test = remoteConfig.getValue('test').asString();
-    console.log(test);
 
     return (
         <div>

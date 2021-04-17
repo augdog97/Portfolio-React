@@ -31,8 +31,7 @@ function App() {
 
   useEffect(() => {
     
-    remoteConfig.defaultConfig = Globals.remoteConfigDefaults;
-   // remoteConfig.settings.minimumFetchIntervalMillis = 10000;
+    //remoteConfig.settings.minimumFetchIntervalMillis = 10000;
       remoteConfig.fetchAndActivate()
       .then(() => {
         console.log('YAY');
