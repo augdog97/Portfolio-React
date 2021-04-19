@@ -10,8 +10,9 @@ import firebase from 'firebase';
 
 
 
+
 const Contact = () => {
-  
+
   // Remoteconfig Variables
   const remoteConfig = firebase.remoteConfig();
   
